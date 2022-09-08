@@ -31,8 +31,10 @@ Navigation
 .. toctree::
    :maxdepth: 1
 
+   examples/index
    modules/index
    planning/index
+   sketching/index
    meta/index
    glossary
 

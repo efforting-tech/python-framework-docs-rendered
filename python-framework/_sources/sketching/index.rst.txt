@@ -1,5 +1,5 @@
-Sketching index
-===============
+Sketching
+=========
 
 .. warning::
 

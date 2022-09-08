@@ -1,6 +1,9 @@
-Examples index
-==============
+Examples
+========
+
+ABC
+---
 
 .. toctree::
 
-  abc_basics
+	abc-basics-1
