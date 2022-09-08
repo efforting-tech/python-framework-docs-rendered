@@ -1,0 +1,15 @@
+Example - ABC Basics
+====================
+
+.. role:: python(code)
+   :language: python
+
+The :term:`ABC` system utilizes a hierarchial tree model.
+For example, if the :term:`ABC` :python:`abc.media.book` is registered, :python:`abc.media` will automatically be registered too.
+And :python:`isinstance(some_instance, abc.media)` will return :python:`True` is :python:`some_instance` has :python:`abc.media.book` as a base class.
+
+.. literalinclude:: abc-basics-1.py
+	:language: python
+	:tab-width: 4
+	:linenos:
+

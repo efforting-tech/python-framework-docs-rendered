@@ -1,0 +1,13 @@
+Member descriptors
+==================
+
+.. warning::
+
+	This section of the documentation relates to sketches of features and does not reflect actually implemented features.
+	The implemented features are available at :doc:`/modules/index`.
+
+.. py:module:: sketching.class_specification.member_descriptors
+	:synopsis: Sketches for class specification
+
+.. py:class:: member_descriptor
+

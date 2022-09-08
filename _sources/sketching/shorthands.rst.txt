@@ -1,0 +1,17 @@
+Shorthands
+==========
+
+.. warning::
+
+	This section of the documentation relates to sketches of features and does not reflect actually implemented features.
+	The implemented features are available at :doc:`/modules/index`.
+
+
+=========	====================================
+Shorthand	Module
+=========	====================================
+C			:mod:`efforting.tech.conditions`
+F			`Pending module for accessing various factories`
+M			:mod:`sketching.class_specification.member_descriptors`
+T			`Pending module for accessing various types`
+=========	====================================

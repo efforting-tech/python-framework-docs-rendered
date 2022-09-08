@@ -1,0 +1,138 @@
+Pending notes
+=============
+
+This is a place for notes that are not yet organized or expanded upon.
+Sort of a scratch pad if you will.
+
+
+.. role:: python(code)
+   :language: python
+
+
+Regarding documentation
+#######################
+
+Updating documentation
+----------------------
+
+Preparation
+^^^^^^^^^^^
+
+Assuming we are in :code:`docs`
+
+.. code-block:: shell-session
+
+	$ git clone github.com:Mikael-Lovqvist/efforting-python-library-docs pub
+
+
+Updating
+^^^^^^^^
+
+.. code-block:: shell-session
+
+	$ cd pub
+	$ rsync -aP ../build/html/ .
+
+
+.. note::
+
+	This should be made into a git submodule in the future.
+
+	But since the current procedure for how to connect source code with documentation is not yet implemented this is defered to a later time.
+
+
+Documentation features
+----------------------
+
+Currently sphinx is used for documentation.
+The long term solution is a custom documentation processor that is utilizing efforting.tech but this is not yet ready.
+Current roadmap for documentation:
+
+.. _documentation_roadmap:
+
+Documentation Roadmap
+^^^^^^^^^^^^^^^^^^^^^
+
+1. Use sphinx out of the box
+2. Extend sphinx to cover lacking use cases
+3. Experiment in using :term:`rst` as intermediate output from efforting.tech
+4. Port the documentation to the new markup system
+5. Use the new markup to generate :term:`rst`-files
+6. Experiment in targeting the output format directly
+7. Drop sphinx
+
+.. note::
+
+	The decision to drop sphinx is not an indication that sphinx is not a great documentation tool.
+	The author of the Efforting.Tech Python Libraries simply wants to depend on as few third party solutions as possible.
+
+Missing features
+^^^^^^^^^^^^^^^^
+
+There is the :code:`.. note::` directive and the :code:`.. warning::` but it would be nice to be able to template all kinds of different notes and customize the coloring and styles of them.
+This is of course possible using sphinx and in the :ref:`documentation roadmap <documentation_roadmap>`, point 2, this will be experimented with.
+
+Having a look in :code:`/usr/lib/python3.10/site-packages/sphinx/writers/html5.py` it can be noted that there are more items than `warning` and `note` that was not present in the sphinx documentation.
+
+.. code-block:: python
+
+	def visit_note(self, node: Element) -> None:
+	    self.visit_admonition(node, 'note')
+
+	def visit_warning(self, node: Element) -> None:
+	    self.visit_admonition(node, 'warning')
+
+	def visit_attention(self, node: Element) -> None:
+	    self.visit_admonition(node, 'attention')
+
+	def visit_caution(self, node: Element) -> None:
+	    self.visit_admonition(node, 'caution')
+
+	def visit_danger(self, node: Element) -> None:
+	    self.visit_admonition(node, 'danger')
+
+	def visit_error(self, node: Element) -> None:
+	    self.visit_admonition(node, 'error')
+
+	def visit_hint(self, node: Element) -> None:
+	    self.visit_admonition(node, 'hint')
+
+	def visit_important(self, node: Element) -> None:
+	    self.visit_admonition(node, 'important')
+
+	def visit_tip(self, node: Element) -> None:
+	    self.visit_admonition(node, 'tip')
+
+
+Current conclusion is that it doesn't look trivial to for instance rearrange the order of things.
+
+.. figure:: ../doc-layout-example-1.png
+	:alt: Example of a layout the author finds harder to navigate
+	:align: left
+
+	In this example it is harder to read the name of the class which is typically what you will be looking for when looking at the module documentation.
+
+.. figure:: ../doc-layout-example-2.png
+	:alt: Example of a layout the author finds easier to navigate
+	:align: left
+
+	In this example the fully qualified name of the class is put under the more visible name of the class. The name is now left aligned and hence easier to spot since they would otherwise be all over the place along the horizon.
+
+.. note::
+
+	There was a setting for this for :code:`conf.py` all along!
+	:python:`add_module_names = False`
+
+
+.. seealso:: https://www.sphinx-doc.org/en/master/development/tutorials/todo.html
+
+
+
+Todo
+----
+
+Figure out how we can get sphinx to show links to the relevant document source on github.
+
+Add exaplanation of concepts and examples for all features
+
+Don't use two images for dark/light - make a custom node for that

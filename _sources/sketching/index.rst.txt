@@ -1,0 +1,12 @@
+Sketching index
+===============
+
+.. warning::
+
+	This section of the documentation relates to sketches of features and does not reflect actually implemented features.
+	The implemented features are available at :doc:`/modules/index`.
+
+.. toctree::
+
+  class_specification
+  shorthands

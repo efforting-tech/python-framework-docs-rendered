@@ -1,0 +1,38 @@
+Class specification
+===================
+
+.. role:: python(code)
+   :language: python
+
+.. warning::
+
+	This section of the documentation relates to sketches of features and does not reflect actually implemented features.
+	The implemented features are available at :doc:`/modules/index`.
+
+.. toctree::
+
+  member_descriptors
+
+Rationale
+---------
+
+This sketch is trying to answer how we want to declare classes that makes uses of the type system.
+The basic idea is that we will have instances of :class:`~sketching.class_specification.member_descriptors.member_descriptor` as members in class bodies.
+
+.. code-block:: python
+
+	#Get shorthand
+	from efforting.tech.class_specification import member_descriptors as M
+
+	#Declare class
+	class some_class(abc.thing.stuff, abc.other.thing):
+		member1 = M.field()
+		cache1 = M.cache()
+
+.. note::
+
+	The example above may not represent the actual members of :mod:`~sketching.class_specification.member_descriptors` since they are not fully flushed out yet.
+
+The idea here is that the various instances of :class:`~sketching.class_specification.member_descriptors.member_descriptor` (:python:`M.field()` and :python:`M.cache()`) declares the functions of the various members. These functions will be implemented by the machinery in :class:`~efforting.tech.abc.abc_type` and they may even add or remove members. This makes it possible to have features that require multiple members, such a cache value and a `data descriptor <https://docs.python.org/3/howto/descriptor.html>`_.
+
+.. seealso:: :doc:`/sketching/shorthands`

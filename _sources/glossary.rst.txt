@@ -1,0 +1,18 @@
+Glossary
+========
+
+.. glossary::
+
+	ABC
+	ABCs
+		Abstract base classes are used to identify feature sets of :term:`concrete classes`.
+		The abstract base classes does not have any features themselves, they only act as markers that get derived down the class hiearchy.
+		These classes should never be instantiated by themselves.
+
+	rst
+		reStructured Text
+
+	concrete class
+	concrete classes
+		Concrete classes are classes that potentially have a state and member functions associated with them.
+		In the :term:`ABC` system of this library there is a big difference in how concrete classes and :term:`ABCs` are handled.
