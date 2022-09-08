@@ -317,9 +317,30 @@
 <li><p><a class="reference external" href="https://github.com/efforting-tech/python-framework-docs-rendered" target="_blank">python-framework-docs-rendered</a> is checked out to <code class="docutils literal notranslate"><span class="pre">./docs-rendered</span></code></p></li>
 <li><p>Current working directory is <code class="docutils literal notranslate"><span class="pre">./docs</span></code></p></li>
 </ul>
-<p class="rubric">Build the documentation</p>
+<p class="rubric">Procedure</p>
+<p>Start by building the documentation and make sure everything is as it should.</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make html
 </pre></div>
+</div>
+<p>Then synchronize the newly generated documentation.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rsync -aP build/html/ ../docs-rendered/python-framework/
+</pre></div>
+</div>
+<p>Go to the <code class="docutils literal notranslate"><span class="pre">./docs-rendered</span></code> directory, update the git branch and verify that the staging looks good.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> ../docs-rendered/
+<span class="gp">$ </span>git add -A
+<span class="gp">$ </span>git status
+</pre></div>
+</div>
+<p>Once the staging is in order, commit and push to main.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git commit -m <span class="s2">&quot;Updated documentation&quot;</span>
+<span class="go">§ git push</span>
+</pre></div>
+</div>
+<p>Github.com will push the changes out and that may take a few minutes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This process may change in the future to go via a pending branch but probably not. Instead this will probably be handled in the source end of the documentation rather than the rendered end.</p>
 </div>
 </section>
 </section>

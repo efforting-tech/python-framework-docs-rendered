@@ -17,8 +17,37 @@ Updating documentation
 - `python-framework-docs-rendered <https://github.com/efforting-tech/python-framework-docs-rendered>`_ is checked out to ``./docs-rendered``
 - Current working directory is ``./docs``
 
-.. rubric:: Build the documentation
+.. rubric:: Procedure
+
+Start by building the documentation and make sure everything is as it should.
 
 .. code-block:: shell-session
 
 	$ make html
+
+Then synchronize the newly generated documentation.
+
+.. code-block:: shell-session
+
+	$ rsync -aP build/html/ ../docs-rendered/python-framework/
+
+Go to the ``./docs-rendered`` directory, update the git branch and verify that the staging looks good.
+
+.. code-block:: shell-session
+
+	$ cd ../docs-rendered/
+	$ git add -A
+	$ git status
+
+Once the staging is in order, commit and push to main.
+
+.. code-block:: shell-session
+
+	$ git commit -m "Updated documentation"
+	§ git push
+
+Github.com will push the changes out and that may take a few minutes.
+
+.. note::
+
+	This process may change in the future to go via a pending branch but probably not. Instead this will probably be handled in the source end of the documentation rather than the rendered end.
