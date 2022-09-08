@@ -1,0 +1,72 @@
+Roadmap
+=======
+
+.. warning::
+
+	This document is in a very early state and should be considered a sketch that may have drastic changes made to it at any time.
+
+
+Python Framework
+----------------
+
+.. rubric:: Foundation
+
+| ☐ Abstract base class system
+| ☐ Type factory
+| ☐ Text tree type
+| ☐ Nested context type
+| ☐ Abstract dispatchers, processors and filters
+| ☐ Generic dispatchers, processors and filters
+| ☐ Text tree processor
+
+.. rubric:: Tree language
+
+| ☐ Proof of concept
+| ☐ Basic features
+| ☐ Basic templating
+| ☐ Basic scripting and python pre processing
+
+.. rubric:: Advanced features
+
+| ☐ Python preprocessor
+| ☐ Importer for tree language modules
+| ☐ Improved cache control for such modules
+
+.. rubric:: Leveraging the tree language
+
+| ☐ Improved template system
+| ☐ Code synthesis system
+
+.. rubric:: Reimplementation of foundation
+
+| ☐ Make project self descriptive
+| ☐ Synthesize the previous foundation
+| ☐ Incorporate resynthesis as part of the development strategy
+
+| ☐ First release
+
+
+Documentation
+-------------
+
+.. rubric:: Initial phase
+
+| ☑ Use sphinx out of the box
+| ☐ :doc:`Figure out <sphinx-utilization>` how to properly utilize sphinx
+| ☐ :doc:`Extend sphinx <sphinx-extensions>` to cover immediate needs
+
+.. rubric:: Experimental phase
+
+| ☐ Experiment with using rst as synthesis output
+| ☐ Experiment with a custom parser for sphinx
+| ☐ Experiment with a custom output formatter for sphinx
+
+.. rubric:: Final phase
+
+| ☐ Replace sphinx with our own solution
+
+
+
+.. Todo
+
+	Write explanations for the reasoning behind the various stops in the roadmaps

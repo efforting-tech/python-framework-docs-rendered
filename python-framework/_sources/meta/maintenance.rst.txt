@@ -1,0 +1,24 @@
+Maintenance
+===========
+
+.. include:: /common/roles.inc
+
+.. warning::
+
+	This document is in a very early state and should be considered a sketch that may have drastic changes made to it at any time.
+
+
+Updating documentation
+----------------------
+
+.. rubric:: Prerequisites
+
+- `python-framework-docs <https://github.com/efforting-tech/python-framework-docs>`_ is checked out to ``./docs``
+- `python-framework-docs-rendered <https://github.com/efforting-tech/python-framework-docs-rendered>`_ is checked out to ``./docs-rendered``
+- Current working directory is ``./docs``
+
+.. rubric:: Build the documentation
+
+.. code-block:: shell-session
+
+	$ make html

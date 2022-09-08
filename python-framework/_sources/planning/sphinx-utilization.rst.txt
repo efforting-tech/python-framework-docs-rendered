@@ -1,0 +1,19 @@
+Planned sphinx utilization
+==========================
+
+.. warning::
+
+	This document is in a very early state and should be considered a sketch that may have drastic changes made to it at any time.
+
+
+Open questions
+--------------
+
+- How do we link to github sources?
+	- Specifically to the relevant version tags
+
+.. seealso:
+
+	- https://github.com/readthedocs/sphinx-autoapi/issues/202
+
+

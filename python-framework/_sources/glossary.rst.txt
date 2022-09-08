@@ -16,3 +16,8 @@ Glossary
 	concrete classes
 		Concrete classes are classes that potentially have a state and member functions associated with them.
 		In the :term:`ABC` system of this library there is a big difference in how concrete classes and :term:`ABCs` are handled.
+
+
+.. seealso::
+
+	- :ref:`Python glossary <glossary>`
