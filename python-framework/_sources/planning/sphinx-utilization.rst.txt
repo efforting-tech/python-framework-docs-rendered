@@ -9,7 +9,7 @@ Planned sphinx utilization
 Open questions
 --------------
 
-- How do we link to github sources?
+- How to link to github sources?
 	- Specifically to the relevant version tags
 
 .. seealso:

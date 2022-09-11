@@ -10,4 +10,5 @@ Wishlist
 --------
 
 - Register git repositories and organizations with roles to create links to repositories.
-	- Would be nice if we could copy various CLI commands directly from those or have other common operations available.
+	- Would be nice to copy various CLI commands directly from those or have other common operations available for the user of the web page.
+- Custom image directive that gives more control over rendering, especially to avoid that the theme messes with images due to the light/dark theme feature

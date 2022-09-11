@@ -16,8 +16,8 @@ Class specification
 Rationale
 ---------
 
-This sketch is trying to answer how we want to declare classes that makes uses of the type system.
-The basic idea is that we will have instances of :class:`~sketching.class_specification.member_descriptors.member_descriptor` as members in class bodies.
+This sketch is trying to answer how to declare classes that makes uses of the type system.
+The basic idea is that instances of :class:`~sketching.class_specification.member_descriptors.member_descriptor` will be utilized as members in class bodies.
 
 .. code-block:: python
 

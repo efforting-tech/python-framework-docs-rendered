@@ -1,0 +1,16 @@
+Release Cycle
+=============
+
+Current plan
+------------
+
+
+1.	Define the milestones for the pending version
+2.	Work on the development branch
+3.	When a milestone is met, merge into main
+4.  When all milestones for the pending version is met, tag main with the version number
+	a.	Create a release without docs
+	b.	Create a branch for this version in the docs repo
+	c.	Create milestones for the documentation
+	d.	When documentation has met the target milstones, create a release
+

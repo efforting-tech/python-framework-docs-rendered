@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Example - ABC Basics &#8212; Efforting.Tech Python Framework  documentation</title>
+    <title>Software and documentation synchronization &#8212; Efforting.Tech Python Framework  documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -34,12 +34,12 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/abc-basics-1';</script>
-    <link rel="canonical" href="/python-framework/examples/abc-basics-1.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'planning/code-docs-synchronization';</script>
+    <link rel="canonical" href="/python-framework/planning/code-docs-synchronization.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Modules" href="../modules/index.html" />
-    <link rel="prev" title="Examples" href="index.html" />
+    <link rel="next" title="Planned sphinx extensions" href="sphinx-extensions.html" />
+    <link rel="prev" title="Release Cycle" href="release-cycle.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -109,8 +109,8 @@
     </p>
     <ul id="navbar-main-elements" class="navbar-nav">
         
-                <li class="nav-item current active">
-                    <a class="nav-link" href="index.html">
+                <li class="nav-item">
+                    <a class="nav-link" href="../examples/index.html">
                         Examples
                     </a>
                 </li>
@@ -123,8 +123,8 @@
                 </li>
                 
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../planning/index.html">
+                <li class="nav-item current active">
+                    <a class="nav-link" href="index.html">
                         Planning
                     </a>
                 </li>
@@ -224,8 +224,8 @@
     </p>
     <ul id="navbar-main-elements" class="navbar-nav">
         
-                <li class="nav-item current active">
-                    <a class="nav-link" href="index.html">
+                <li class="nav-item">
+                    <a class="nav-link" href="../examples/index.html">
                         Examples
                     </a>
                 </li>
@@ -238,8 +238,8 @@
                 </li>
                 
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../planning/index.html">
+                <li class="nav-item current active">
+                    <a class="nav-link" href="index.html">
                         Planning
                     </a>
                 </li>
@@ -309,9 +309,29 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="roadmap.html">
+   Roadmap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="release-cycle.html">
+   Release Cycle
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Example - ABC Basics
+   Software and documentation synchronization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sphinx-extensions.html">
+   Planned sphinx extensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sphinx-utilization.html">
+   Planned sphinx utilization
   </a>
  </li>
 </ul>
@@ -342,25 +362,10 @@
             
             <article class="bd-article" role="main">
               
-  <section id="example-abc-basics">
-<h1>Example - ABC Basics<a class="headerlink" href="#example-abc-basics" title="Permalink to this heading">#</a></h1>
-<p>The <a class="reference internal" href="../glossary.html#term-ABC"><span class="xref std std-term">ABC</span></a> system utilizes a hierarchial tree model.
-For example, if the <a class="reference internal" href="../glossary.html#term-ABC"><span class="xref std std-term">ABC</span></a> <code class="code highlight python docutils literal highlight-python"><span class="n">abc</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">book</span></code> is registered, <code class="code highlight python docutils literal highlight-python"><span class="n">abc</span><span class="o">.</span><span class="n">media</span></code> will automatically be registered too.
-And <code class="code highlight python docutils literal highlight-python"><span class="nb">isinstance</span><span class="p">(</span><span class="n">some_instance</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">media</span><span class="p">)</span></code> will return <code class="code highlight python docutils literal highlight-python"><span class="kc">True</span></code> is <code class="code highlight python docutils literal highlight-python"><span class="n">some_instance</span></code> has <code class="code highlight python docutils literal highlight-python"><span class="n">abc</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">book</span></code> as a base class.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">efforting.tech.abc</span> <span class="kn">import</span> <span class="n">create_abc</span><span class="p">,</span> <span class="n">abc</span>
-<span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">create_abc</span><span class="p">(</span><span class="s1">&#39;media.paper&#39;</span><span class="p">)</span>
-<span class="linenos"> 4</span><span class="n">create_abc</span><span class="p">(</span><span class="s1">&#39;media.stone_tablet&#39;</span><span class="p">)</span>
-<span class="linenos"> 5</span><span class="n">create_abc</span><span class="p">(</span><span class="s1">&#39;information.source&#39;</span><span class="p">)</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="k">class</span> <span class="nc">book</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">paper</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">information</span><span class="o">.</span><span class="n">source</span><span class="p">):</span>
-<span class="linenos"> 8</span>	<span class="k">pass</span>
-<span class="linenos"> 9</span>
-<span class="linenos">10</span><span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">book</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">paper</span><span class="p">))</span>				<span class="c1">#True</span>
-<span class="linenos">11</span><span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">book</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">stone_tablet</span><span class="p">))</span>			<span class="c1">#False</span>
-<span class="linenos">12</span><span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">book</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">information</span><span class="p">))</span>				<span class="c1">#True</span>
-</pre></div>
-</div>
+  <section id="software-and-documentation-synchronization">
+<h1>Software and documentation synchronization<a class="headerlink" href="#software-and-documentation-synchronization" title="Permalink to this heading">#</a></h1>
+<p>It is important to keep good track of how the code base and documentation go together. When the code is changed all affected parts of the documentation needs to be audited. In order to make this task reasonable there shall be a utility that can detect when documentation is out of date. This is of course not magic and will require some proper annotation of the documentation.</p>
+<p>In the documentation a special tag will be used for defining the relevant code artifacts, this can be glob patterns of canonical python paths of artifacts (modules, classes, functions, variables). When documentation is generated an snapshot is taken of the artifacts (this will be done using AST so that whitespace changes can be ignored). This snapshot is then used to detect the changes which will annootate the relevant sections in the documentation as potentially out of date. This can later be changed to an affirmation that the documentation is still relevant.</p>
 </section>
 
 
@@ -371,17 +376,17 @@ And <code class="code highlight python docutils literal highlight-python"><span 
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="release-cycle.html" title="previous page">
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Examples</p>
+          <p class="prev-next-title">Release Cycle</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="../modules/index.html" title="next page">
+  <a class='right-next' id="next-link" href="sphinx-extensions.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Modules</p>
+      <p class="prev-next-title">Planned sphinx extensions</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
@@ -401,7 +406,7 @@ And <code class="code highlight python docutils literal highlight-python"><span 
 <div class="toc-item">
   
 <div class="tocsection sourcelink">
-    <a href="../_sources/examples/abc-basics-1.rst.txt">
+    <a href="../_sources/planning/code-docs-synchronization.rst.txt">
         <i class="fas fa-file-alt"></i> Show Source
     </a>
 </div>

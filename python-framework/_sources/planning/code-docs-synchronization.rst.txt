@@ -1,0 +1,7 @@
+Software and documentation synchronization
+==========================================
+
+It is important to keep good track of how the code base and documentation go together. When the code is changed all affected parts of the documentation needs to be audited. In order to make this task reasonable there shall be a utility that can detect when documentation is out of date. This is of course not magic and will require some proper annotation of the documentation.
+
+In the documentation a special tag will be used for defining the relevant code artifacts, this can be glob patterns of canonical python paths of artifacts (modules, classes, functions, variables). When documentation is generated an snapshot is taken of the artifacts (this will be done using AST so that whitespace changes can be ignored). This snapshot is then used to detect the changes which will annootate the relevant sections in the documentation as potentially out of date. This can later be changed to an affirmation that the documentation is still relevant.
+

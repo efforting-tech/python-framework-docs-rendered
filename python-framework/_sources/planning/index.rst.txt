@@ -4,5 +4,7 @@ Planning
 .. toctree::
 
 	roadmap
+	release-cycle
+	code-docs-synchronization
 	sphinx-extensions
 	sphinx-utilization
