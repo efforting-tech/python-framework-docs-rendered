@@ -5,6 +5,10 @@ Roadmap
 
 	This document is in a very early state and should be considered a sketch that may have drastic changes made to it at any time.
 
+.. toctree::
+
+	type-system
+
 
 Python Framework
 ----------------
@@ -12,7 +16,7 @@ Python Framework
 .. rubric:: Foundation
 
 | ☐ Abstract base class system
-| ☐ Type factory
+| ☐ `Type factory <https://github.com/efforting-tech/python-framework-code/issues/1>`__
 | ☐ Text tree type
 | ☐ Nested context type
 | ☐ Abstract dispatchers, processors and filters

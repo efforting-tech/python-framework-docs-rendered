@@ -1,0 +1,65 @@
+Type System
+===========
+
+.. include:: /common/roles.inc
+
+Earlier work
+------------
+
+
+Member classes
+^^^^^^^^^^^^^^
+
+In earlier work the author explored various ways of defining the various components of a type system. One of these components of course is a member of a class. Initially this was classified in a few classes. The definitions of these classes were not completely clear so this will be a bit vauge and only serve to highlight some of the thoughts behind them.
+
+- configuration
+	Data that is set on the class rather than the instance. This data could be updated when subclassing or even mutated, such as a list where each subclass add to the list. There are open questions here, such as, should this data be overridable on the instance? Could this be a setting in itself?
+- public data
+	These members would operate the way you normally think of members. They may be set by the constructor, a factory function or a default value. They are mutable and considered part of the instances state.
+- state
+	These are members that may or may not be present. They will be used to hold temporary states when performing some operation. Since they are part of the state they should be saved and restored during serialization.
+- transient
+	Transient members are members that could be present but doesn't have to be saved when serializing the data. This would typically be used for caching purposes.
+
+Member templates
+^^^^^^^^^^^^^^^^
+In this earlier work there were also some member templates that were commonly used.
+
+- member
+	The basic member (puiblic data), typically also either defining a default value or a factory function. Note that when it comes to factory functions there are a few different APIs possible and a decision have to be made which ones to support and how to select which one to use.
+- named
+	Basic member that stores all the remaining named arguments, such as :python:`𝑓(**named)`.
+- positional
+	Basic member that stores all the remaining positional arguments, such as :python:`𝑓(*positional)`.
+- keyword_only
+	Basic member that is keyword only such as :python:`𝑓(..., *, keyword_only)`.
+- arguments
+	Basic member that stores all remaining positional and named arguments such as :python:`𝑓(*pos, **named)` → :python:`arguments(pos, named)`.
+- state
+	This was supposed to either be a base class of members for inclusion in :python:`__getstate__()` or just a member that did not consume any positional or named argument. It is currently unclear if this was ever used.
+- config
+	This is a configuration value so this is initialized during subclassing rather than instantiation.
+- transient
+	The base member of transient members.
+- cached(transient)
+	The cache will call the factory function and then update the instance so it will only be called once. Do invalidate a cache the attribute has to be erased from the instance. This can be done automatically with a member configuration for cache invalidation. This still needs further work to consider all the angles.
+- subclass_initializer
+	A function to be called during subclass initialization.
+- instance_initializer
+	A function to be called during instance initialization.
+- member_operation
+	Base member for specific operations on members during subclassing.
+- update_member(member_operation)
+	Creates a new copy of the original member value and then merges that new value with the current one.
+- replace_member(member_operation)
+	Replaces the current member with the new one.
+
+Property templates
+^^^^^^^^^^^^^^^^^^
+
+- base_property
+	Base for all properties
+- property(base_property)
+	This will act as a property that evaluates some function each call
+- cached_property(base_property)
+	Not sure if this was ever used since this would be similar functionality as `cached(transient)`.
