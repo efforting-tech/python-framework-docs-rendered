@@ -500,6 +500,168 @@
 </li>
 </ul>
 </section>
+<section id="module-archive.type_system_member">
+<span id="member-properties"></span><h3>Member properties<a class="headerlink" href="#module-archive.type_system_member" title="Permalink to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="archive.type_system_member.base_member">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_member</span></span><a class="headerlink" href="#archive.type_system_member.base_member" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="archive.type_system_member.member">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">member</span></span><a class="headerlink" href="#archive.type_system_member.member" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#archive.type_system_member.base_member" title="archive.type_system_member.base_member"><code class="xref py py-class docutils literal notranslate"><span class="pre">base_member</span></code></a></p>
+<p class="rubric">Parameter consumption during construction</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.positional">
+<span class="sig-name descname"><span class="pre">positional</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#archive.type_system_member.member.positional" title="Permalink to this definition">#</a></dt>
+<dd><p>Determines if this member should consume a positional argument during initialization.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.named">
+<span class="sig-name descname"><span class="pre">named</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#archive.type_system_member.member.named" title="Permalink to this definition">#</a></dt>
+<dd><p>Determines if this member should consume a named argument during initialization.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.remaining_positional">
+<span class="sig-name descname"><span class="pre">remaining_positional</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#archive.type_system_member.member.remaining_positional" title="Permalink to this definition">#</a></dt>
+<dd><p>Determines if this member should consume all remaining positional arguments as a sequence during initialization.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.remaining_named">
+<span class="sig-name descname"><span class="pre">remaining_named</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#archive.type_system_member.member.remaining_named" title="Permalink to this definition">#</a></dt>
+<dd><p>Determines if this member should consume all remaining named arguments as a mapping during initialization.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since members can be initialized in different situations, maybe it should be made more clear when the various parameter consumptions should happen. Also note that the previous work is only meant as an inspiration and not a specification.</p>
+</div>
+<p class="rubric">Initialization options</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.init_during_subclassing">
+<span class="sig-name descname"><span class="pre">init_during_subclassing</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#archive.type_system_member.member.init_during_subclassing" title="Permalink to this definition">#</a></dt>
+<dd><p>Determines if this member should be initialized during subclassing or not (__init_subclass__).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.init_during_instantiation">
+<span class="sig-name descname"><span class="pre">init_during_instantiation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#archive.type_system_member.member.init_during_instantiation" title="Permalink to this definition">#</a></dt>
+<dd><p>Determines if this member should be initialized during instantiation or not (__init__).</p>
+</dd></dl>
+
+<p class="rubric">Member data initialization</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.default">
+<span class="sig-name descname"><span class="pre">default</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">UNDEFINED</span></em><a class="headerlink" href="#archive.type_system_member.member.default" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets an initial value during initialization.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.factory">
+<span class="sig-name descname"><span class="pre">factory</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#archive.type_system_member.member.factory" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets a factory to be used to set the value during initialization.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Factories could potentially be called in a few different ways such as</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">factory</span><span class="p">()</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">factory</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">factory</span><span class="p">(</span><span class="n">member</span><span class="p">)</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="n">factory</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span></code></p></li>
+<li><p>…</p></li>
+</ul>
+<p>There need to be a reasonable way to select which one to use. Potentially this could be done using configuration profiles. Once the documents discussing those are made they will be included as references here.</p>
+</div>
+</dd></dl>
+
+<p class="rubric">Member metadata</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#archive.type_system_member.member.name" title="Permalink to this definition">#</a></dt>
+<dd><p>The name of the member.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Typically this will be set in the __set_name__ handler.</p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#archive.type_system_member.member.description" title="Permalink to this definition">#</a></dt>
+<dd><p>A description of the member, mainly used for documentation.</p>
+</dd></dl>
+
+<p class="rubric">Caching</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.invalidate_caches">
+<span class="sig-name descname"><span class="pre">invalidate_caches</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#archive.type_system_member.member.invalidate_caches" title="Permalink to this definition">#</a></dt>
+<dd><p>Could specify as sequence of member names that should be invalidated when this member is set.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There needs to be more thought put into the caching system because there are some caveats such as modifying a field of an item which would not trigger the invalidation.</p>
+</div>
+</dd></dl>
+
+<p class="rubric">Filtering</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.assignment_filter">
+<span class="sig-name descname"><span class="pre">assignment_filter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#archive.type_system_member.member.assignment_filter" title="Permalink to this definition">#</a></dt>
+<dd><p>Filters the data that is being set during assignment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Filters could potentially be called in a few different ways such as</p>
+<ul class="simple">
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="nb">filter</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="nb">filter</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="nb">filter</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">member</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code></p></li>
+<li><p><code class="code highlight python docutils literal highlight-python"><span class="nb">filter</span><span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code></p></li>
+<li><p>…</p></li>
+</ul>
+<p>There need to be a reasonable way to select which one to use. Potentially this could be done using configuration profiles. Once the documents discussing those are made they will be included as references here.</p>
+</div>
+</dd></dl>
+
+<p class="rubric">Type management</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">UNDEFINED</span></em><a class="headerlink" href="#archive.type_system_member.member.type" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets what type this member should have data of.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If auto_cast is set and type is not, then type will be set to auto_cast.</p>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.auto_cast">
+<span class="sig-name descname"><span class="pre">auto_cast</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#archive.type_system_member.member.auto_cast" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets a type to automatically run assignment data through. Will also update type if type is not set.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If auto_cast is set to True then type must be explicitly set.</p>
+</div>
+</dd></dl>
+
+<p class="rubric">Automatic assignments</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.assign_self">
+<span class="sig-name descname"><span class="pre">assign_self</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#archive.type_system_member.member.assign_self" title="Permalink to this definition">#</a></dt>
+<dd><p>This is used when this member is being assigned some data. The member indicated by assign_self of the data will be set to the current instance. This is useful to automatically set an owner or other relation automatically.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="archive.type_system_member.member.assign_class">
+<span class="sig-name descname"><span class="pre">assign_class</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#archive.type_system_member.member.assign_class" title="Permalink to this definition">#</a></dt>
+<dd><p>This is used when this member is being assigned some data. The member indicated by assign_class of the data will be set to the current class. This is useful to automatically set some relation automatically.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 </section>
 </section>
 
@@ -559,6 +721,11 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#property-templates">
      Property templates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#module-archive.type_system_member">
+     Member properties
     </a>
    </li>
   </ul>

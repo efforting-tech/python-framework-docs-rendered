@@ -63,3 +63,171 @@ Property templates
 	This will act as a property that evaluates some function each call
 - cached_property(base_property)
 	Not sure if this was ever used since this would be similar functionality as `cached(transient)`.
+
+
+Member properties
+^^^^^^^^^^^^^^^^^
+
+
+.. py:module:: archive.type_system_member
+
+.. py:class:: base_member
+
+.. py:class:: member
+
+	Bases: :class:`base_member`
+
+	.. rubric:: Parameter consumption during construction
+
+	.. py:data:: positional
+		:value: True
+
+		Determines if this member should consume a positional argument during initialization.
+
+	.. py:data:: named
+		:value: True
+
+		Determines if this member should consume a named argument during initialization.
+
+	.. py:data:: remaining_positional
+		:value: False
+
+		Determines if this member should consume all remaining positional arguments as a sequence during initialization.
+
+	.. py:data:: remaining_named
+		:value: False
+
+		Determines if this member should consume all remaining named arguments as a mapping during initialization.
+
+	.. note::
+
+		Since members can be initialized in different situations, maybe it should be made more clear when the various parameter consumptions should happen. Also note that the previous work is only meant as an inspiration and not a specification.
+
+
+	.. rubric:: Initialization options
+
+	.. py:data:: init_during_subclassing
+		:value: False
+
+		Determines if this member should be initialized during subclassing or not (__init_subclass__).
+
+	.. py:data:: init_during_instantiation
+		:value: True
+
+		Determines if this member should be initialized during instantiation or not (__init__).
+
+	.. rubric:: Member data initialization
+
+	.. py:data:: default
+		:value: UNDEFINED
+
+		Sets an initial value during initialization.
+
+	.. py:data:: factory
+		:value: None
+
+		Sets a factory to be used to set the value during initialization.
+
+		.. note::
+
+			Factories could potentially be called in a few different ways such as
+
+			- :python:`factory()`
+			- :python:`factory(instance)`
+			- :python:`factory(member)`
+			- :python:`factory(instance, member)`
+			- ...
+
+			There need to be a reasonable way to select which one to use. Potentially this could be done using configuration profiles. Once the documents discussing those are made they will be included as references here.
+
+		..
+			TODO: Document the earlier work for configuration profiles
+
+
+	.. rubric:: Member metadata
+
+	.. py:data:: name
+		:value: None
+
+		The name of the member.
+
+		.. note::
+
+			Typically this will be set in the __set_name__ handler.
+
+	.. py:data:: description
+		:value: None
+
+		A description of the member, mainly used for documentation.
+
+
+	.. rubric:: Caching
+
+	.. py:data:: invalidate_caches
+		:value: None
+
+		Could specify as sequence of member names that should be invalidated when this member is set.
+
+		.. note::
+
+			There needs to be more thought put into the caching system because there are some caveats such as modifying a field of an item which would not trigger the invalidation.
+
+	.. rubric:: Filtering
+
+	.. py:data:: assignment_filter
+		:value: None
+
+		Filters the data that is being set during assignment.
+
+		.. note::
+
+			Filters could potentially be called in a few different ways such as
+
+			- :python:`filter(value)`
+			- :python:`filter(instance, value)`
+			- :python:`filter(instance, member, value)`
+			- :python:`filter(member, value)`
+			- ...
+
+			There need to be a reasonable way to select which one to use. Potentially this could be done using configuration profiles. Once the documents discussing those are made they will be included as references here.
+
+		..
+			TODO: Document the earlier work for configuration profiles
+
+
+	.. rubric:: Type management
+
+	.. py:data:: type
+		:value: UNDEFINED
+
+		Sets what type this member should have data of.
+
+		.. note::
+
+			If auto_cast is set and type is not, then type will be set to auto_cast.
+
+	.. py:data:: auto_cast
+		:value: None
+
+		Sets a type to automatically run assignment data through. Will also update type if type is not set.
+
+		.. note::
+
+			If auto_cast is set to True then type must be explicitly set.
+
+
+	.. rubric:: Automatic assignments
+
+	.. py:data:: assign_self
+		:value: None
+
+		This is used when this member is being assigned some data. The member indicated by assign_self of the data will be set to the current instance. This is useful to automatically set an owner or other relation automatically.
+
+	.. py:data:: assign_class
+		:value: None
+
+		This is used when this member is being assigned some data. The member indicated by assign_class of the data will be set to the current class. This is useful to automatically set some relation automatically.
+
+
+
+
