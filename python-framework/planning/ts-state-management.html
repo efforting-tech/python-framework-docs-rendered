@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Roadmap &#8212; Efforting.Tech Python Framework  documentation</title>
+    <title>Type System State Management &#8212; Efforting.Tech Python Framework  documentation</title>
   <script>
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
@@ -34,12 +34,12 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'planning/roadmap';</script>
-    <link rel="canonical" href="/python-framework/planning/roadmap.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'planning/ts-state-management';</script>
+    <link rel="canonical" href="/python-framework/planning/ts-state-management.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Type System" href="type-system.html" />
-    <link rel="prev" title="Planning" href="index.html" />
+    <link rel="next" title="Release Cycle" href="release-cycle.html" />
+    <link rel="prev" title="Type System" href="type-system.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -310,7 +310,7 @@
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="roadmap.html">
    Roadmap
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -318,19 +318,19 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2 has-children">
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
     <a class="reference internal" href="type-system.html">
      Type System
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label class="toctree-toggle" for="toctree-checkbox-2">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="ts-state-management.html">
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Type System State Management
       </a>
      </li>
@@ -386,85 +386,63 @@
             
             <article class="bd-article" role="main">
               
-  <section id="roadmap">
-<h1>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this heading">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This document is in a very early state and should be considered a sketch that may have drastic changes made to it at any time.</p>
+  <section id="type-system-state-management">
+<h1>Type System State Management<a class="headerlink" href="#type-system-state-management" title="Permalink to this heading">#</a></h1>
+<section id="state-classification">
+<h2>State classification<a class="headerlink" href="#state-classification" title="Permalink to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This article could benefit from collapsable entries for the state classifications.</p>
 </div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="type-system.html">Type System</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ts-state-management.html">Type System State Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="type-system.html#earlier-work">Earlier work</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="type-system.html#member-classes">Member classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="type-system.html#member-templates">Member templates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="type-system.html#property-templates">Property templates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="type-system.html#module-archive.type_system_member">Member properties</a></li>
+<p>The state of an artifact can be classified into the following classes.</p>
+<dl>
+<dt>Constituent state</dt><dd><p>Required constituent of the artifacts contents between atomic operations.</p>
+<p class="rubric">Requirements</p>
+<ul class="simple">
+<li><p>Must be stored when artifact is stored</p></li>
+<li><p>Must be loaded when artifact is loaded</p></li>
 </ul>
-</li>
+<p class="rubric">Use cases</p>
+<ul class="simple">
+<li><p>Define the artifact contents</p></li>
 </ul>
-</li>
+</dd>
+<dt>Inter operational state</dt><dd><p>Transient between atomic operations.</p>
+<p class="rubric">Requirements</p>
+<ul class="simple">
+<li><p>Must be stored when suspending atomic operation</p></li>
+<li><p>Must be loaded when resuming atomic operation</p></li>
 </ul>
-</div>
-<section id="python-framework">
-<h2>Python Framework<a class="headerlink" href="#python-framework" title="Permalink to this heading">#</a></h2>
-<p class="rubric">Foundation</p>
-<div class="line-block">
-<div class="line">☐ Abstract base class system</div>
-<div class="line">☐ <a class="reference external" href="https://github.com/efforting-tech/python-framework-code/issues/1" target="_blank">Type factory</a></div>
-<div class="line">☐ Text tree type</div>
-<div class="line">☐ Nested context type</div>
-<div class="line">☐ Abstract dispatchers, processors and filters</div>
-<div class="line">☐ Generic dispatchers, processors and filters</div>
-<div class="line">☐ Text tree processor</div>
-</div>
-<p class="rubric">Tree language</p>
-<div class="line-block">
-<div class="line">☐ Proof of concept</div>
-<div class="line">☐ Basic features</div>
-<div class="line">☐ Basic templating</div>
-<div class="line">☐ Basic scripting and python pre processing</div>
-</div>
-<p class="rubric">Advanced features</p>
-<div class="line-block">
-<div class="line">☐ Python preprocessor</div>
-<div class="line">☐ Importer for tree language modules</div>
-<div class="line">☐ Improved cache control for such modules</div>
-</div>
-<p class="rubric">Leveraging the tree language</p>
-<div class="line-block">
-<div class="line">☐ Improved template system</div>
-<div class="line">☐ Code synthesis system</div>
-</div>
-<p class="rubric">Reimplementation of foundation</p>
-<div class="line-block">
-<div class="line">☐ Make project self descriptive</div>
-<div class="line">☐ Synthesize the previous foundation</div>
-<div class="line">☐ Incorporate resynthesis as part of the development strategy</div>
-</div>
-<div class="line-block">
-<div class="line">☐ First release</div>
-</div>
-</section>
-<section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
-<p class="rubric">Initial phase</p>
-<div class="line-block">
-<div class="line">☑ Use sphinx out of the box</div>
-<div class="line">☐ <a class="reference internal" href="sphinx-utilization.html"><span class="doc">Figure out</span></a> how to properly utilize sphinx</div>
-<div class="line">☐ <a class="reference internal" href="sphinx-extensions.html"><span class="doc">Extend sphinx</span></a> to cover immediate needs</div>
-</div>
-<p class="rubric">Experimental phase</p>
-<div class="line-block">
-<div class="line">☐ Experiment with using rst as synthesis output</div>
-<div class="line">☐ Experiment with a custom parser for sphinx</div>
-<div class="line">☐ Experiment with a custom output formatter for sphinx</div>
-</div>
-<p class="rubric">Final phase</p>
-<div class="line-block">
-<div class="line">☐ Replace sphinx with our own solution</div>
-</div>
+<p class="rubric">Use cases</p>
+<ul class="simple">
+<li><p>Progress reporting</p></li>
+<li><p>Suspending and resuming atomic operation</p></li>
+<li><p>Internal use by artifact procedures</p></li>
+</ul>
+</dd>
+<dt>Derived state</dt><dd><p>State that always can be recreated from other states as long as no circular dependency emerges.</p>
+<p class="rubric">Requirements</p>
+<ul class="simple">
+<li><p>Must be dervied from other states</p></li>
+<li><p>Must not be derived in a manner that creates a circular dependency</p></li>
+</ul>
+<p class="rubric">Use cases</p>
+<ul class="simple">
+<li><p>Caching</p></li>
+</ul>
+</dd>
+<dt>Transient state</dt><dd><p>State that is only valid in the current session.</p>
+<p class="rubric">Requirements</p>
+<ul class="simple">
+<li><p>No requirements</p></li>
+</ul>
+<p class="rubric">Use cases</p>
+<ul class="simple">
+<li><p>Synchronization</p></li>
+<li><p>Memory management</p></li>
+</ul>
+</dd>
+</dl>
 </section>
 </section>
 
@@ -476,17 +454,17 @@
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="type-system.html" title="previous page">
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Planning</p>
+          <p class="prev-next-title">Type System</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="type-system.html" title="next page">
+  <a class='right-next' id="next-link" href="release-cycle.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Type System</p>
+      <p class="prev-next-title">Release Cycle</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
@@ -507,13 +485,8 @@
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-framework">
-   Python Framework
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#documentation">
-   Documentation
+  <a class="reference internal nav-link" href="#state-classification">
+   State classification
   </a>
  </li>
 </ul>
@@ -528,7 +501,7 @@
 <div class="toc-item">
   
 <div class="tocsection sourcelink">
-    <a href="../_sources/planning/roadmap.rst.txt">
+    <a href="../_sources/planning/ts-state-management.rst.txt">
         <i class="fas fa-file-alt"></i> Show Source
     </a>
 </div>

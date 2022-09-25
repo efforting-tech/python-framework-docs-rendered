@@ -1,0 +1,63 @@
+Type System State Management
+============================
+
+State classification
+--------------------
+
+.. note::
+
+	This article could benefit from collapsable entries for the state classifications.
+
+
+The state of an artifact can be classified into the following classes.
+
+Constituent state
+	Required constituent of the artifacts contents between atomic operations.
+
+	.. rubric:: Requirements
+
+	- Must be stored when artifact is stored
+	- Must be loaded when artifact is loaded
+
+	.. rubric:: Use cases
+
+	- Define the artifact contents
+
+Inter operational state
+	Transient between atomic operations.
+
+	.. rubric:: Requirements
+
+	- Must be stored when suspending atomic operation
+	- Must be loaded when resuming atomic operation
+
+	.. rubric:: Use cases
+
+	- Progress reporting
+	- Suspending and resuming atomic operation
+	- Internal use by artifact procedures
+
+Derived state
+	State that always can be recreated from other states as long as no circular dependency emerges.
+
+	.. rubric:: Requirements
+
+	- Must be dervied from other states
+	- Must not be derived in a manner that creates a circular dependency
+
+	.. rubric:: Use cases
+
+	- Caching
+
+Transient state
+	State that is only valid in the current session.
+
+	.. rubric:: Requirements
+
+	- No requirements
+
+	.. rubric:: Use cases
+
+	- Synchronization
+	- Memory management
+

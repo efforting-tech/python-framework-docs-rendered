@@ -3,6 +3,10 @@ Type System
 
 .. include:: /common/roles.inc
 
+.. toctree::
+
+	ts-state-management
+
 Earlier work
 ------------
 
@@ -226,7 +230,7 @@ Member properties
 	.. py:data:: assign_class
 		:value: None
 
-		This is used when this member is being assigned some data. The member indicated by assign_class of the data will be set to the current class. This is useful to automatically set some relation automatically.
+		This is used when this member is being assigned some data. The member indicated by assign_class of the data will be set to the current class. This is useful to automatically set some relation.
 
 
 
