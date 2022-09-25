@@ -54,7 +54,7 @@ Transient state
 
 	.. rubric:: Requirements
 
-	- No requirements
+	- Must not be required outside of the session
 
 	.. rubric:: Use cases
 
